@@ -1,0 +1,233 @@
+.countdownContainer {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.countdownContainer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(78, 205, 196, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(255, 107, 107, 0.2) 0%, transparent 50%);
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-10px) rotate(1deg); }
+  66% { transform: translateY(10px) rotate(-1deg); }
+}
+
+.countdownWrapper {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+  width: 100%;
+}
+
+.countdownContent {
+  background: rgba(15, 12, 41, 0.8);
+  border: 2px solid rgba(120, 119, 198, 0.4);
+  border-radius: 32px;
+  padding: 3rem 2rem;
+  text-align: center;
+  box-shadow:
+    0 25px 80px rgba(0, 0, 0, 0.5),
+    0 0 100px rgba(120, 119, 198, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  animation: slideUp 0.8s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.iconContainer {
+  margin-bottom: 2rem;
+}
+
+.zapIcon {
+  width: 64px;
+  height: 64px;
+  color: #ff6b6b;
+  filter: drop-shadow(0 0 20px rgba(255, 107, 107, 0.6));
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+.title {
+  color: white;
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 2rem;
+  text-shadow:
+    0 0 30px rgba(255, 255, 255, 0.5),
+    0 5px 15px rgba(0, 0, 0, 0.5);
+  letter-spacing: 2px;
+}
+
+.countdownDisplay {
+  margin: 3rem 0;
+}
+
+.numberCircle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(255, 107, 107, 0.8) 0%, rgba(255, 87, 87, 0.6) 100%);
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  box-shadow:
+    0 20px 60px rgba(255, 107, 107, 0.4),
+    inset 0 5px 15px rgba(255, 255, 255, 0.1);
+  animation: countdownPulse 1s ease-in-out infinite;
+}
+
+@keyframes countdownPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow:
+      0 20px 60px rgba(255, 107, 107, 0.4),
+      inset 0 5px 15px rgba(255, 255, 255, 0.1);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow:
+      0 25px 80px rgba(255, 107, 107, 0.6),
+      inset 0 5px 15px rgba(255, 255, 255, 0.2);
+  }
+}
+
+.countdownNumber {
+  font-size: 6rem;
+  font-weight: 900;
+  color: white;
+  text-shadow:
+    0 0 40px rgba(255, 255, 255, 0.8),
+    0 4px 20px rgba(0, 0, 0, 0.8);
+  font-family: 'Courier New', monospace;
+}
+
+.subtitle {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+}
+
+.playersPreview {
+  margin-top: 2rem;
+}
+
+.playersTitle {
+  color: #8b87e8;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.playersList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.playerItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(120, 119, 198, 0.1);
+  border: 1px solid rgba(120, 119, 198, 0.3);
+  border-radius: 12px;
+  padding: 1rem;
+  transition: all 0.3s ease;
+}
+
+.playerItem:hover {
+  background: rgba(120, 119, 198, 0.2);
+  transform: translateX(5px);
+}
+
+.playerAvatar {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.playerName {
+  color: white;
+  font-weight: 600;
+  flex: 1;
+  text-align: left;
+}
+
+.firstDrawer {
+  background: rgba(78, 205, 196, 0.2);
+  border: 1px solid rgba(78, 205, 196, 0.4);
+  border-radius: 20px;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.8rem;
+  color: #4ecdc4;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px) {
+  .countdownContent {
+    padding: 2rem 1.5rem;
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .numberCircle {
+    width: 150px;
+    height: 150px;
+  }
+
+  .countdownNumber {
+    font-size: 4rem;
+  }
+
+  .playersList {
+    max-height: 150px;
+  }
+}

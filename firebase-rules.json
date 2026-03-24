@@ -1,0 +1,19 @@
+{
+  "rules": {
+    "rooms": {
+      "$roomCode": {
+        ".read": true,
+        ".write": true,
+        "players": {
+          ".indexOn": ["joinedAt", "name"]
+        },
+        "drawing": {
+          ".indexOn": ["timestamp"]
+        },
+        "chat": {
+          ".indexOn": ["timestamp"]
+        }
+      }
+    }
+  }
+}
